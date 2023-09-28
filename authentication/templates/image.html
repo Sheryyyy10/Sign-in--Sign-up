@@ -1,0 +1,18 @@
+<!Docktype html>
+<html lang="en">
+<head>
+
+{% extends "signin.html" %}
+{% block content %}
+<h2>Upload Profile Image</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
+
+<img src="{{ request.user.userprofile.profile_image.url }}" alt="Profile Image">
+
+</head>
+</html>
